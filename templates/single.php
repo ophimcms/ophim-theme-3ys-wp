@@ -53,7 +53,7 @@
                             </div>
                             </p>
                         </div>
-                        <div class="myui-content__operate">
+                        <div class="myui-content__operate" style="padding-left: 0;">
                             <?php if(watchUrl()) : ?>
                             <a class="btn btn-warm" href="<?= watchUrl() ?>"><i class="fa fa-play"></i>Xem Phim</a>
                             <?php endif ?>

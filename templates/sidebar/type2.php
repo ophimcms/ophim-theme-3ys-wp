@@ -26,7 +26,12 @@
                     }?>
                     <li>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
-                            <span class="pull-right  text-muted" style="color: ;"> <?= op_get_quality() ?></span>		<span class="badge <?= $class_top ?>"><?= $key ?></span><?php the_title() ?>	</a>
+                        <span class="flex justify-between items-center">
+                            <span class="badge <?= $class_top ?>"><?= $key?></span>
+                            <span class="text-overflow"><?php the_title(); ?></span>
+                            <span class="text-muted"> <?= op_get_year(' ') ?></span>
+                        </span>
+                        </a>
                     </li>
                 <?php
                 endwhile; ?>

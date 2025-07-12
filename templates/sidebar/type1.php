@@ -12,7 +12,7 @@
                 <?php $key = 0;
                 while ($query->have_posts()) : $query->the_post();
                     $key++ ?>
-                <li class="col-md-2 col-sm-2 col-xs-1">
+                <li class="col-md-2 col-sm-2 col-xs-1 text-overflow">
                     <span><?= $key?>. </span><a href="<?php the_permalink(); ?>"
                                       target="_blank" rel="nofollow"><?php the_title(); ?></a></li>
                 <?php endwhile; ?>
