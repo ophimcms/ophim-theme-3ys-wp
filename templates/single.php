@@ -53,18 +53,17 @@
                             </div>
                             </p>
                         </div>
-                        <div class="myui-content__operate" style="padding-left: 0;">
-                            <?php if(watchUrl()) : ?>
+                    </div>
+                    <div class="myui-content__operate" style="padding-left: 0;">
+                        <?php if(watchUrl()) : ?>
                             <a class="btn btn-warm" href="<?= watchUrl() ?>"><i class="fa fa-play"></i>Xem Phim</a>
-                            <?php endif ?>
-                            <?php if (op_get_trailer_url()) :
-                                parse_str(parse_url(op_get_trailer_url(), PHP_URL_QUERY), $my_array_of_vars);
-                                $video_id = $my_array_of_vars['v'];
-                                ?>
-                                <a class="btn btn-warm fancybox fancybox.iframe" href="https://www.youtube.com/embed/<?= $video_id ?>"><i class="fa fa-play"></i>Trailer</a>
-                            <?php endif ?>
-
-                        </div>
+                        <?php endif ?>
+                        <?php if (op_get_trailer_url()) :
+                            parse_str(parse_url(op_get_trailer_url(), PHP_URL_QUERY), $my_array_of_vars);
+                            $video_id = $my_array_of_vars['v'];
+                            ?>
+                            <a class="btn btn-warm fancybox fancybox.iframe" href="https://www.youtube.com/embed/<?= $video_id ?>"><i class="fa fa-play"></i>Trailer</a>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
