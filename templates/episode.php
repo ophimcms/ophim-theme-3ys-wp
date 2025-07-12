@@ -12,10 +12,27 @@
 
                         </div>
                     </div>
-                    <style type="text/css"> .embed-responsive{ padding-bottom: 56.25%;} </style>
+                    <style type="text/css">
+                        .embed-responsive {
+                            padding-bottom: 56.25%;
+                        }
+                    </style>
                     <a class="is-btn hidden-sm hidden-xs" id="player-sidebar-is" href="javascript:"><i class="fa fa-angle-right"></i></a>
                 </div>
                 <div class="col-lg-wide-25 col-md-wide-35 padding-0" id="player-sidebar">
+                    <div class="video-info-aux">
+                        <a onclick="chooseStreamingServer(this)" data-type="m3u8" id="streaming-sv"
+                           data-id="<?= episodeName() ?>"
+                           data-link="<?= m3u8EpisodeUrl() ?>" class="streaming-server tag-link"
+                           style="background: #232328;color: #FFF">
+                            Nguồn #1
+                        </a>
+                        <a onclick="chooseStreamingServer(this)" data-type="embed" id="streaming-sv"
+                           data-id="<?= episodeName() ?>" data-link="<?= embedEpisodeUrl() ?>"
+                           class="streaming-server tag-link" style="background: #232328;color: #FFF">
+                            Nguồn #2
+                        </a>
+                    </div>
                     <div class="myui-panel active clearfix">
                         <div class="myui-panel-box clearfix">
                             <div class="col-pd clearfix">
@@ -25,33 +42,35 @@
                                 <div class="text-muted">
                                     <ul class="nav nav-tabs pull-right">
                                         <li class="dropdown pb10 margin-0">
-                                            <a href="javascript:" class="padding-0 text-fff" data-toggle="dropdown">Chọn Server <i class="fa fa-angle-down"></i></a>
+                                            <a href="javascript:" class="padding-0 text-fff" data-toggle="dropdown">Chọn
+                                                Server <i class="fa fa-angle-down"></i></a>
                                             <div class="dropdown-box bottom">
                                                 <ul class="item">
-                                                      <?php foreach (episodeList() as $key => $server) { ?>
-                                                           <li <?php if ($key == episodeSV()) : ?> class="active" <?php endif ?> ><a href="#player<?= $key?>" data-toggle="tab"><?= $server['server_name'] ?></a></li>
-                                                      <?php } ?>
+                                                    <?php foreach (episodeList() as $key => $server) { ?>
+                                                        <li <?php if ($key == episodeSV()) : ?> class="active" <?php endif ?> ><a href="#player<?= $key?>" data-toggle="tab"><?= $server['server_name'] ?></a></li>
+                                                    <?php } ?>
                                                 </ul>
                                             </div>
                                         </li>
-                                        <a class="more sort-button pull-right" style="margin-left: 10px;" href="javascript:"><i class="fa fa-sort-amount-asc"></i> Sắp xếp</a>
+                                        <a class="more sort-button pull-right" style="margin-left: 10px;"
+                                           href="javascript:"><i class="fa fa-sort-amount-asc"></i> Sắp xếp</a>
                                     </ul>
                                 </div>
                                 <div class="tab-content">
-                                      <?php foreach (episodeList() as $key => $server) { ?>
-                                    <div id="player<?= $key?>" class="tab-pane fade in clearfix <?php if ($key == episodeSV()) : ?> active <?php endif ?>">
-                                        <ul class="myui-content__list sort-list clearfix" id="playlist">
-                                          <?php foreach ($server['server_data'] as $list) : ?>
-                                            <li class="col-md-2 col-sm-5 col-xs-3">
-                                                <a class="btn btn-min  <?php if ($list == getEpisode()) { echo ' btn-warm'; } else{ echo ' btn-gray'; } ?>"
-                                                   href="<?= $list['getUrl'] ?>">
-                                                    <?= $list['name'] ?>
-                                                </a>
-                                            </li>
-                                          <?php endforeach; ?>
-                                        </ul>
-                                    </div>
-                                      <?php } ?>
+                                    <?php foreach (episodeList() as $key => $server) { ?>
+                                        <div id="player<?= $key?>" class="tab-pane fade in clearfix <?php if ($key == episodeSV()) : ?> active <?php endif ?>">
+                                            <ul class="myui-content__list sort-list clearfix" id="playlist">
+                                                <?php foreach ($server['server_data'] as $list) : ?>
+                                                    <li class="col-md-2 col-sm-5 col-xs-3">
+                                                        <a class="btn btn-min  <?php if ($list == getEpisode()) { echo ' btn-warm'; } else{ echo ' btn-gray'; } ?>"
+                                                           href="<?= $list['getUrl'] ?>">
+                                                            <?= $list['name'] ?>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -66,19 +85,6 @@
                 </h3>
                 <p class="text-muted margin-0">
                     <?= op_get_original_title() ?> / <?= op_get_year(' ') ?> /	 <?= op_get_lang() ?></p>
-                <div class="video-info-aux" style="margin-top: 10px;text-align: center">
-                    <a onclick="chooseStreamingServer(this)" data-type="m3u8" id="streaming-sv"
-                       data-id="<?= episodeName() ?>"
-                       data-link="<?= m3u8EpisodeUrl() ?>" class="streaming-server tag-link"
-                       style="background: #232328;color: #FFF">
-                        Nguồn #1
-                    </a>
-                    <a onclick="chooseStreamingServer(this)" data-type="embed" id="streaming-sv"
-                       data-id="<?= episodeName() ?>" data-link="<?= embedEpisodeUrl() ?>"
-                       class="streaming-server tag-link" style="background: #232328;color: #FFF">
-                        Nguồn #2
-                    </a>
-                </div>
             </div>
         </div>
     </div>
